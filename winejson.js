@@ -21,7 +21,7 @@ for ( var i in json) {
     //console.log(id);
     console.log(num);
 
-    var rgxp = new RegExp(process.argv[3], "g");
+    var rgxp = new RegExp(process.argv[3], "i");
     var count = (id.match(rgxp) || []).length;
     console.log("Count : "+count);
     json[i][field] = count;
@@ -29,4 +29,4 @@ for ( var i in json) {
 let jsonfile = JSON.stringify(json);
   fs.writeFileSync('modified.json', jsonfile);
   child_process.execSync('json2csv -i modified.json -o modified.csv')
-  child_process.execSync('open modified.csv')
+  //child_process.execSync('open modified.csv')
